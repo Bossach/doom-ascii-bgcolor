@@ -1,3 +1,7 @@
+Fork from [wojciech-graj/doom-ascii](https://github.com/wojciech-graj/doom-ascii)
+The only change is using background color instead text one
+
+
 # DOOM-ASCII
 
 ![LOGO](screenshots/logo.png)
