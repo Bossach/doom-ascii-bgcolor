@@ -81,7 +81,7 @@ int clock_gettime(int p, struct timespec *spec)
 	*(buf_)++ = '0' + (byte_) % 10u;\
 } while (0)
 
-const char grad[] = " .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$";
+const char grad[] = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. ";
 #define GRAD_LEN 70u
 #define INPUT_BUFFER_LEN 16u
 #define EVENT_BUFFER_LEN (INPUT_BUFFER_LEN * 2u - 1u)
@@ -149,7 +149,7 @@ void DG_DrawFrame()
 		for (col = 0; col < DOOMGENERIC_RESX; col++) {
 			if ((color ^ *(uint32_t*)pixel) & 0x00FFFFFF) {
 				*buf++ = '\033'; *buf++ = '[';
-				*buf++ = '3'; *buf++ = '8';
+				*buf++ = '4'; *buf++ = '8';
 				*buf++ = ';'; *buf++ = '2';
 				*buf++ = ';'; BYTE_TO_TEXT(buf, pixel->r);
 				*buf++ = ';'; BYTE_TO_TEXT(buf, pixel->g);
@@ -167,8 +167,8 @@ void DG_DrawFrame()
 	*buf++ = '0';
 	*buf = 'm';
 
-	/* move cursor to top left corner and set bold text*/
-	fputs("\033[;H\033[1m", stdout);
+	/* move cursor to top left corner and set black text*/
+	fputs("\033[;H\033[30m", stdout);
 
 	/* flush output buffer */
 	CALL_STDOUT(fputs(output_buffer, stdout), "DG_DrawFrame: fputs error %d");
